@@ -1,6 +1,6 @@
 import { Accessory, Count, Implement, Task, TimeIncrement, Location } from './types'
 
-export const Tasks: Task[] = [
+export const tasks: Task[] = [
     {
         description: 'beat',
         hasImplement: true,
