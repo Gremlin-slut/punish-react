@@ -10,7 +10,7 @@ function App() {
 
   const handleClick = () => {
     const task = tasks[(Math.floor(Math.random() * (tasks.length)))];
-    setOutput(task.description)l
+    setOutput(task.description);
   };
 
   return (
