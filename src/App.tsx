@@ -5,7 +5,7 @@ import './App.css'
 import { tasks } from './data'
 
 function App() {
-  const [count, setCount] = useState(0)
+
   const [output, setOutput] = useState("");
 
   const handleClick = () => {
@@ -26,15 +26,9 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={handleClick}>
-          count is {count}
+
           {output}
-          <ul>
-            {tasks.map((task) => (
-              <li>
-                {task.description}
-              </li>
-            ))}
-          </ul>
+
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
