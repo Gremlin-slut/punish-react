@@ -1,40 +1,29 @@
-export interface Task 
-{
-  id: number;
+export interface Task {
   description: string;
-  hasImplement: boolean;
-  hasAbrasive: boolean;
-  hasLocation: boolean;
-  hasCount: boolean;
-  isPost: boolean;  
+  hasImplement?: boolean;
+  hasAccessory?: boolean;
+  hasLocation?: boolean;
+  hasCount?: boolean;
+  isPost?: boolean;
+  weight: number;
 }
 
-export interface Implement 
-{
-  id: number;
+export interface Implement {
   description: string;
 }
 
-export interface Abrasive 
-{
-  id: number;
+export interface Accessory {
   description: string;
 }
 
-export interface Location 
-{
-  id: number;
+export interface Location {
   description: string;
 }
 
-export interface Count 
-{
-  id: number;
+export interface Count {
   description: string;
 }
 
-export interface TimeIncrement 
-{
-  id: number;
+export interface TimeIncrement {
   description: string;
 }
