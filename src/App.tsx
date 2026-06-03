@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { tasks } from './data'
+import { tasks, Implements, Accessories, Locations, TimeIncrements, Counts } from './data'
 
 function App() {
 
@@ -10,26 +10,27 @@ function App() {
 
   const handleClick = () => {
     const task = tasks[(Math.floor(Math.random() * (tasks.length)))];
-    setOutput(task.description);
+    const imp = Implements[(Math.floor(Math.random() * (Implements.length)))];
+    const acc = Accessories[(Math.floor(Math.random() * (Accessories.length)))];
+    const loc = Locations[(Math.floor(Math.random() * (Locations.length)))];
+    const baseTime = TimeIncrements[(Math.floor(Math.random() * (TimeIncrements.length)))];
+    const extend = TimeIncrements[(Math.floor(Math.random() * (TimeIncrements.length)))];
+    const count = Counts[(Math.floor(Math.random() * (Counts.length)))];
+
+
+
+    setOutput(`${task.description} ${imp.description} ${acc.description} ${loc.description} ${baseTime.description} ${extend.description} ${count.description}`);
   };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+
+      <h1>Punish Gremlin</h1>
       <div className="card">
         <button onClick={handleClick}>
-
-          {output}
-
+          Punish
         </button>
+        {output}
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
