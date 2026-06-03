@@ -6,6 +6,12 @@ import { tasks } from './data'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [output, setOutput] = useState("");
+
+  const handleClick = () => {
+    const task = tasks[(Math.floor(Math.random() * (tasks.length)))];
+    setOutput(task.description)l
+  };
 
   return (
     <>
@@ -19,8 +25,9 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={handleClick}>
           count is {count}
+          {output}
           <ul>
             {tasks.map((task) => (
               <li>
