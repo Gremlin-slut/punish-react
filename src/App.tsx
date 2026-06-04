@@ -28,7 +28,7 @@ function App() {
     return tasks[tasks.length - 1];
   }
 
-  const handleClick = () => {
+  const generatePunishment = () => {
     const task = getTask();
     const imp = Implements[(Math.floor(Math.random() * (Implements.length)))];
     const acc = Accessories[(Math.floor(Math.random() * (Accessories.length)))];
@@ -63,6 +63,10 @@ function App() {
 
     setbuttonPressed(true);
     setOutput(result);
+  };
+
+  const handleClick = () => {
+    generatePunishment();
   };
 
   const handleCum = () => {
@@ -103,7 +107,9 @@ function App() {
         <button disabled={isCumButtonDisabled} onClick={handleCum}>
           Cum for me, bitch
         </button>
+        <br />
         {specialMessage}
+        <br />
         {output}
 
       </div>
