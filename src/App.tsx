@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { tasks, Implements, Accessories, Locations, TimeIncrements, Counts } from './data'
 import { logger } from './logger'
+import { Analytics } from '@vercel/analytics/react'
 
 function App() {
 
@@ -120,6 +121,7 @@ console.log("cum for: " + nameToMoan + "(" + username + ")");
       </div>
 
       <h3> Site under construction. Please screenshot your resuls and send to @gremlinslut to claim</h3>
+      <Analytics />
     </>
   )
 }
