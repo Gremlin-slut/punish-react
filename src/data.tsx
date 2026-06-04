@@ -6,34 +6,33 @@ export const tasks: Task[] = [
         hasImplement: true,
         hasLocation: true,
         hasCount: true,
-        weight: 0
+        weight: 10
     },
     {
         description: 'put',
         hasAccessory: true,
         hasLocation: true,
-        weight: 0
+        weight: 10
     },
 
     {
         description: 'put tacks',
         hasLocation: true,
-        weight: 0
+        weight: 2
     },
     {
         description: 'face',
         isPost: true,
-        weight: 0
+        weight: 2
     },
     {
         description: 'nude face',
         isPost: true,
-        weight: 0
+        weight: 1
     },
     {
-        description: 'bind',
-        hasLocation: true,
-        weight: 0
+        description: 'bind their tits',
+        weight: 5
     },
     {
         description: 'put',
@@ -41,22 +40,21 @@ export const tasks: Task[] = [
         hasAccessory: true,
         hasLocation: true,
         hasCount: true,
-        weight: 0
+        weight: 10
     },
     {
         description: 'bind & beat',
         hasImplement: true,
-        hasLocation: true,
         hasCount: true,
-        weight: 0
+        weight: 10
     },
     {
         description: 'thank you',
-        weight: 0
+        weight: 3
     },
     {
         description: 'apologise to you',
-        weight: 0
+        weight: 3
     },
     {
         description: 'write lines',
@@ -81,12 +79,12 @@ export const tasks: Task[] = [
     },
     {
         description: 'cut off its clothes',
-        weight: 0
+        weight: 1
     },
     {
         description: 'video voucher',
         isPost: true,
-        weight: 0
+        weight: 1
     }
 ];
 
@@ -114,22 +112,22 @@ export const Accessories: Accessory[] = [
 ];
 
 export const Locations: Location[] = [
-    { description: 'clit' },
+    { description: 'clit/panties' },
     { description: 'panties' },
-    { description: 'nips' },
+    { description: 'nips/bra' },
     { description: 'bra' },
-    { description: 'pussy & tits' },
+    { description: 'pussy/panties & tits/bra' },
 ];
 
 export const TimeIncrements: TimeIncrement[] = [
-    { description: '5' },
-    { description: '10' },
-    { description: '30' },
-    { description: '1' },
-    { description: '3' },
-    { description: '6' },
-    { description: '12' },
-    { description: '24' },
+    { description: '5 mins' },
+    { description: '10 mins' },
+    { description: '30 mins' },
+    { description: '1 hour' },
+    { description: '3 hours' },
+    { description: '6 hours' },
+    { description: '12 hours' },
+    { description: '24 hours' },
     { description: 'random' },
 ];
 
