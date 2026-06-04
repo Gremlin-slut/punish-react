@@ -62,7 +62,8 @@ function App() {
 
 
     logger.warn(username + ": " + result);
-
+ console.log(username + ": " + result);
+    
     setbuttonPressed(true);
     setOutput(result);
   };
@@ -73,6 +74,8 @@ function App() {
 
   const handleCum = () => {
     logger.warn("cum for: " + nameToMoan + "(" + username + ")");
+console.log("cum for: " + nameToMoan + "(" + username + ")");
+    
     setSpecialMessage("Gremlin will send you your special video when it is able to");
     generatePunishment();
   }
