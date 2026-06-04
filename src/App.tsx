@@ -103,18 +103,20 @@ function App() {
           placeholder="Enter name to moan"
         />
         <br /><br />
-        <button disabled={isButtonDisabled} onClick={handleClick}>
+        <div>  <button disabled={isButtonDisabled} onClick={handleClick}>
           Punish
-        </button>
-        <button disabled={isCumButtonDisabled} onClick={handleCum}>
+        </button></div>
+        <div>    <button disabled={isCumButtonDisabled} onClick={handleCum}>
           Cum for me, bitch
-        </button>
+        </button></div>
 
-        <br />
-        <div>  {output}</div>
         <br /><br />
+        <div>  {output}</div>
+        <br />
         <div>  {specialMessage}</div>
       </div>
+
+      <h3> Site under construction. Please screenshot your resuls and send to @gremlinslut to claim</h3>
     </>
   )
 }
