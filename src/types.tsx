@@ -27,3 +27,13 @@ export interface Count {
 export interface TimeIncrement {
   description: string;
 }
+
+export type LogLevel = 'info' | 'warn' | 'error';
+
+export interface LogPayload {
+  level: LogLevel;
+  message: string;
+  timestamp: string;
+  context?: Record<string, unknown>;
+  url: string;
+}
