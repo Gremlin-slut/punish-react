@@ -95,25 +95,25 @@ function App() {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
           placeholder="Enter Kik username"
         />
-        <br />
+        <br /><br />
         <input
           type="name"
           value={nameToMoan}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
           placeholder="Enter name to moan"
         />
-        <br />
+        <br /><br />
         <button disabled={isButtonDisabled} onClick={handleClick}>
           Punish
         </button>
         <button disabled={isCumButtonDisabled} onClick={handleCum}>
           Cum for me, bitch
         </button>
-        <br />
-        {specialMessage}
-        <br />
-        {output}
 
+        <br />
+        <div>  {output}</div>
+        <br /><br />
+        <div>  {specialMessage}</div>
       </div>
     </>
   )
