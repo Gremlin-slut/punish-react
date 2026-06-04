@@ -16,7 +16,7 @@ function App() {
     const totalWeight = tasks.reduce((sum, item) => sum + item.weight, 0);
 
     //random weight
-    let weightToGo = (Math.floor(Math.random() * (tasks.length)))
+    let weightToGo = (Math.floor(Math.random() * totalWeight));
 
     //item relates to
     for (const item of tasks) {
