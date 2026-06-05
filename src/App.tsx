@@ -13,19 +13,20 @@ function App() {
   const [nameToMoan, setName] = useState<string>('');
   const [buttonPressed, setbuttonPressed] = useState<boolean>(false);
 
+  let specialButtonPressed: boolean = false;
   let emailBody = '';
 
 
-  const sendEmail = async () => {
+  const sendEmail = async (message: string) => {
 
     // Call the relative Vercel API path
     const response = await fetch('/api/send', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name: nameToMoan,
+        name: specialButtonPressed ? nameToMoan : '',
         username: username,
-        pumishment: output
+        pumishment: message
       }),
     });
 
@@ -89,7 +90,7 @@ function App() {
 
     setbuttonPressed(true);
     setOutput(result);
-    sendEmail();
+    sendEmail(result);
   };
 
   const handleClick = () => {
@@ -100,6 +101,7 @@ function App() {
     emailBody = "cum for: " + nameToMoan + "(" + username + ")";
 
     setSpecialMessage("Gremlin will send you your special video when it is able to");
+    specialButtonPressed = true;
     generatePunishment();
   }
 
