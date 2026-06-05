@@ -32,15 +32,17 @@ function App() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        body: emailBody
+        name: nameToMoan,
+        username: username,
+        pumishment: output
       }),
     });
 
     const result = await response.json();
     if (result.success) {
-      alert('Email sent successfully!');
+      alert('The slut has been notified');
     } else {
-      alert('Failed to send email.');
+      alert('Please send a screenshot of your results to the slut.');
     }
   };
 
@@ -70,7 +72,7 @@ function App() {
     const extend = TimeIncrements[(Math.floor(Math.random() * (TimeIncrements.length)))];
     const count = Counts[(Math.floor(Math.random() * (Counts.length)))];
 
-    let result = "Gremlin will " + task.description;
+    let result = task.description;
 
     if (task.hasAccessory) {
       result = result + " " + acc.description + " on their " + loc.description;
@@ -89,7 +91,7 @@ function App() {
       result = result + " in their " + loc.description;
     }
     else if (task.isPost) {
-      result = "Gremlin will post a " + task.description + " to EP for " + baseTime.description + " with extentions of " + extend.description
+      result = "post a " + task.description + " to EP for " + baseTime.description + " with extentions of " + extend.description
     }
 
     emailBody = emailBody + " \n " + username + ": " + result;
@@ -149,14 +151,11 @@ function App() {
             <Button variant='contained' disabled={isCumButtonDisabled} onClick={handleCum}> Cum for me, bitch</Button>
           </Stack>
 
-
           <br /><br />
-          <div>  {output}</div>
+          <div> Gremlin will {output}</div>
           <br />
           <div>  {specialMessage}</div>
 
-
-          <h3> Site under construction. Please screenshot your resuls and send to @gremlinslut to claim</h3>
           <Analytics />
         </Stack>
 

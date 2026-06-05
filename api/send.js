@@ -12,14 +12,14 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { body } = req.body;
+    const { name, username,  pumishment } = req.body;
 
     // Trigger the email transmission
     const data = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Use verified domain in production
+      from: 'punish@gremlin.dev', // Use verified domain in production
       to: 'gremlinslutphotos@gmail.com', 
-      subject: `New Contact Form`,
-      html: `<p> ${body}</p>`,
+      subject: `New Punishment Submission`,
+      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Kik User:</strong> ${username}</p><p><strong>Punishment:</strong> ${pumishment}</p>`,
     });
 
     return res.status(200).json({ success: true, data });
