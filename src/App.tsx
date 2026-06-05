@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { tasks, Implements, Accessories, Locations, TimeIncrements, Counts } from './data'
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import { Analytics } from '@vercel/analytics/react'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { TextField } from '@mui/material';
@@ -156,6 +157,7 @@ function App() {
 
 
           <h3> Site under construction. Please screenshot your resuls and send to @gremlinslut to claim</h3>
+          <Analytics />
         </Stack>
 
       </ThemeProvider>
