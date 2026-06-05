@@ -1,7 +1,17 @@
 import { useState } from 'react'
-import './App.css'
 import { tasks, Implements, Accessories, Locations, TimeIncrements, Counts } from './data'
-import { logger } from './logger'
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { TextField } from '@mui/material';
+
+const theme = createTheme({
+  colorSchemes: {
+    light: false,
+    dark: true,
+  },
+});
 
 function App() {
 
@@ -11,6 +21,27 @@ function App() {
   const [nameToMoan, setName] = useState<string>('');
   const [buttonPressed, setbuttonPressed] = useState<boolean>(false);
 
+  let emailBody = '';
+
+
+  const sendEmail = async () => {
+
+    // Call the relative Vercel API path
+    const response = await fetch('/api/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        body: emailBody
+      }),
+    });
+
+    const result = await response.json();
+    if (result.success) {
+      alert('Email sent successfully!');
+    } else {
+      alert('Failed to send email.');
+    }
+  };
 
   const getTask = () => {
     //get total weight
@@ -60,11 +91,11 @@ function App() {
       result = "Gremlin will post a " + task.description + " to EP for " + baseTime.description + " with extentions of " + extend.description
     }
 
-
-    logger.warn(username + ": " + result);
+    emailBody = emailBody + " \n " + username + ": " + result;
 
     setbuttonPressed(true);
     setOutput(result);
+    sendEmail();
   };
 
   const handleClick = () => {
@@ -72,7 +103,8 @@ function App() {
   };
 
   const handleCum = () => {
-    logger.warn("cum for: " + nameToMoan + "(" + username + ")");
+    emailBody = "cum for: " + nameToMoan + "(" + username + ")";
+
     setSpecialMessage("Gremlin will send you your special video when it is able to");
     generatePunishment();
   }
@@ -83,40 +115,50 @@ function App() {
   return (
     <>
 
-      <h1>Punish Gremlin</h1>
-      <div>One roll per legitimately earned punishment only. <br /> Proof will be sent on Kik</div>
+      <ThemeProvider theme={theme} defaultMode='dark'>
+        <CssBaseline enableColorScheme />
 
-      <h3>Limited time special button!</h3>
-      <div>Recieve cum video & punishment proof</div>
-      <div className="card">
-        <input
-          type="username"
-          value={username}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
-          placeholder="Enter Kik username"
-        />
-        <br /><br />
-        <input
-          type="name"
-          value={nameToMoan}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
-          placeholder="Enter name to moan"
-        />
-        <br /><br />
-        <div>  <button disabled={isButtonDisabled} onClick={handleClick}>
-          Punish
-        </button></div>
-        <div>    <button disabled={isCumButtonDisabled} onClick={handleCum}>
-          Cum for me, bitch
-        </button></div>
+        <Stack spacing={2}
+          sx={{
+            alignItems: 'center',
+            height: '100vh', // Needed if you want to center vertically inside the viewport
+          }}>
+          <h1>Punish Gremlin</h1>
+          <div>One roll per legitimately earned punishment only. </div>
+          <div> Proof will be sent on Kik</div>
 
-        <br /><br />
-        <div>  {output}</div>
-        <br />
-        <div>  {specialMessage}</div>
-      </div>
+          <h3>Limited time special button!</h3>
+          <div>Recieve cum video & punishment proof</div>
+          <Stack direction="row" spacing={2}>
+            <TextField
+              required
+              id="username"
+              label="Kik username"
+              onChange={(event) => { setUsername(event.target.value) }}
+            />
+            <TextField
+              required
+              id="nameToMoan"
+              label="Name to Moan"
+              onChange={(event) => { setName(event.target.value) }}
+            />
+          </Stack>
+          <Stack direction="row" spacing={2}>
+            <Button variant='contained' disabled={isButtonDisabled} onClick={handleClick}>Punish</Button>
+            <Button variant='contained' disabled={isCumButtonDisabled} onClick={handleCum}> Cum for me, bitch</Button>
+          </Stack>
 
-      <h3> Site under construction. Please screenshot your resuls and send to @gremlinslut to claim</h3>
+
+          <br /><br />
+          <div>  {output}</div>
+          <br />
+          <div>  {specialMessage}</div>
+
+
+          <h3> Site under construction. Please screenshot your resuls and send to @gremlinslut to claim</h3>
+        </Stack>
+
+      </ThemeProvider>
     </>
   )
 }
