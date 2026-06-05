@@ -3,7 +3,7 @@ import { tasks, Implements, Accessories, Locations, TimeIncrements, Counts } fro
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { Analytics } from '@vercel/analytics/react'
-import { Box, TextField } from '@mui/material';
+import TextField from '@mui/material/TextField';
 
 function App() {
 
@@ -138,11 +138,14 @@ function App() {
         <Stack direction="row" spacing={2}>
           <Button variant='contained' disabled={isButtonDisabled} onClick={handleClick}>Punish</Button>
           <Button variant='contained' disabled={isCumButtonDisabled} onClick={handleCum}> Cum for me, bitch</Button>
+
         </Stack>
 
-        {buttonPressed && <Stack direction="row" spacing={2}>
-          <Box> Gremlin will {output}</Box>
-          <Box>  {specialMessage}</Box>
+        {buttonPressed && <Stack spacing={2} sx={{
+          alignItems: 'center'
+        }}>
+          <div> Gremlin will {output}</div>
+          <div>  {specialMessage}</div>
         </Stack>
         }
 

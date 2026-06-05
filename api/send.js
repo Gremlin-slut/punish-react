@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
     // Trigger the email transmission
     const data = await resend.emails.send({
-      from: 'punish@gremlin.dev', // Use verified domain in production
+      from: 'punish@resend.dev', // Use verified domain in production
       to: 'gremlinslutphotos@gmail.com', 
       subject: `New Punishment Submission`,
       html: `<p><strong>Name:</strong> ${name}</p><p><strong>Kik User:</strong> ${username}</p><p><strong>Punishment:</strong> ${pumishment}</p>`,
