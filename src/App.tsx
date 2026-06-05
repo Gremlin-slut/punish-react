@@ -3,16 +3,7 @@ import { tasks, Implements, Accessories, Locations, TimeIncrements, Counts } fro
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { Analytics } from '@vercel/analytics/react'
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { TextField } from '@mui/material';
-
-const theme = createTheme({
-  colorSchemes: {
-    light: false,
-    dark: true,
-  },
-});
+import { Box, TextField } from '@mui/material';
 
 function App() {
 
@@ -118,50 +109,46 @@ function App() {
   return (
     <>
 
-      <ThemeProvider theme={theme} defaultMode='dark'>
-        <CssBaseline enableColorScheme />
+      <Stack spacing={2}
+        sx={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh', // Needed if you want to center vertically inside the viewport
+        }}>
+        <h1>Punish Gremlin</h1>
+        <div>One roll per legitimately earned punishment only. </div>
+        <div> Proof will be sent on Kik</div>
 
-        <Stack spacing={2}
-          sx={{
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100vh', // Needed if you want to center vertically inside the viewport
-          }}>
-          <h1>Punish Gremlin</h1>
-          <div>One roll per legitimately earned punishment only. </div>
-          <div> Proof will be sent on Kik</div>
-
-          <h3>Limited time special button!</h3>
-          <div>Recieve cum video & punishment proof</div>
-          <Stack direction="row" spacing={2}>
-            <TextField
-              required
-              id="username"
-              label="Kik username"
-              onChange={(event) => { setUsername(event.target.value) }}
-            />
-            <TextField
-              required
-              id="nameToMoan"
-              label="Name to Moan"
-              onChange={(event) => { setName(event.target.value) }}
-            />
-          </Stack>
-          <Stack direction="row" spacing={2}>
-            <Button variant='contained' disabled={isButtonDisabled} onClick={handleClick}>Punish</Button>
-            <Button variant='contained' disabled={isCumButtonDisabled} onClick={handleCum}> Cum for me, bitch</Button>
-          </Stack>
-
-          {buttonPressed && <Stack direction="row" spacing={2}>
-            <div> Gremlin will {output}</div>
-            <div>  {specialMessage}</div>
-          </Stack>
-          }
-
-          <Analytics />
+        <h3>Limited time special button!</h3>
+        <div>Recieve cum video & punishment proof</div>
+        <Stack direction="row" spacing={2}>
+          <TextField
+            required
+            id="username"
+            label="Kik username"
+            onChange={(event) => { setUsername(event.target.value) }}
+          />
+          <TextField
+            required
+            id="nameToMoan"
+            label="Name to Moan"
+            onChange={(event) => { setName(event.target.value) }}
+          />
+        </Stack>
+        <Stack direction="row" spacing={2}>
+          <Button variant='contained' disabled={isButtonDisabled} onClick={handleClick}>Punish</Button>
+          <Button variant='contained' disabled={isCumButtonDisabled} onClick={handleCum}> Cum for me, bitch</Button>
         </Stack>
 
-      </ThemeProvider>
+        {buttonPressed && <Stack direction="row" spacing={2}>
+          <Box> Gremlin will {output}</Box>
+          <Box>  {specialMessage}</Box>
+        </Stack>
+        }
+
+        <Analytics />
+      </Stack>
+
     </>
   )
 }
