@@ -124,6 +124,7 @@ function App() {
         <Stack spacing={2}
           sx={{
             alignItems: 'center',
+            justifyContent: 'center',
             height: '100vh', // Needed if you want to center vertically inside the viewport
           }}>
           <h1>Punish Gremlin</h1>
@@ -151,10 +152,11 @@ function App() {
             <Button variant='contained' disabled={isCumButtonDisabled} onClick={handleCum}> Cum for me, bitch</Button>
           </Stack>
 
-          <br /><br />
-          <div> Gremlin will {output}</div>
-          <br />
-          <div>  {specialMessage}</div>
+          {buttonPressed && <Stack direction="row" spacing={2}>
+            <div> Gremlin will {output}</div>
+            <div>  {specialMessage}</div>
+          </Stack>
+          }
 
           <Analytics />
         </Stack>
