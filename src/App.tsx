@@ -8,12 +8,12 @@ import TextField from '@mui/material/TextField';
 function App() {
 
   const [output, setOutput] = useState<string>("");
-  const [specialMessage, setSpecialMessage] = useState<string>("");
+  // const [specialMessage, setSpecialMessage] = useState<string>("");
   const [username, setUsername] = useState<string>('');
-  const [nameToMoan, setName] = useState<string>('');
+  // const [nameToMoan, setName] = useState<string>('');
   const [buttonPressed, setbuttonPressed] = useState<boolean>(false);
 
-  let specialButtonPressed: boolean = false;
+  // let specialButtonPressed: boolean = false;
   let emailBody = '';
 
 
@@ -24,7 +24,7 @@ function App() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name: specialButtonPressed ? nameToMoan : '',
+        //     name: specialButtonPressed ? nameToMoan : '',
         username: username,
         pumishment: message
       }),
@@ -97,16 +97,16 @@ function App() {
     generatePunishment();
   };
 
-  const handleCum = () => {
-    emailBody = "cum for: " + nameToMoan + "(" + username + ")";
+  // const handleCum = () => {
+  //   emailBody = "cum for: " + nameToMoan + "(" + username + ")";
 
-    setSpecialMessage("Gremlin will send you your special video when it is able to");
-    specialButtonPressed = true;
-    generatePunishment();
-  }
+  //   setSpecialMessage("Gremlin will send you your special video when it is able to");
+  //   specialButtonPressed = true;
+  //   generatePunishment();
+  // }
 
   const isButtonDisabled: boolean = buttonPressed || (username.trim() === '');
-  const isCumButtonDisabled: boolean = buttonPressed || (username.trim() === '') || (nameToMoan.trim() === '');
+  // const isCumButtonDisabled: boolean = buttonPressed || (username.trim() === '') || (nameToMoan.trim() === '');
 
   return (
     <>
@@ -121,8 +121,8 @@ function App() {
         <div>One roll per legitimately earned punishment only. </div>
         <div> Proof will be sent on Kik</div>
 
-        <h3>Limited time special button!</h3>
-        <div>Recieve cum video & punishment proof</div>
+        {/* <h3>Limited time special button!</h3>
+        <div>Recieve cum video & punishment proof</div> */}
         <Stack direction="row" spacing={2}>
           <TextField
             required
@@ -130,16 +130,16 @@ function App() {
             label="Kik username"
             onChange={(event) => { setUsername(event.target.value) }}
           />
-          <TextField
+          {/* <TextField
             required
             id="nameToMoan"
             label="Name to Moan"
             onChange={(event) => { setName(event.target.value) }}
-          />
+          /> */}
         </Stack>
         <Stack direction="row" spacing={2}>
           <Button variant='contained' disabled={isButtonDisabled} onClick={handleClick}>Punish</Button>
-          <Button variant='contained' disabled={isCumButtonDisabled} onClick={handleCum}> Cum for me, bitch</Button>
+          {/* <Button variant='contained' disabled={isCumButtonDisabled} onClick={handleCum}> Cum for me, bitch</Button> */}
 
         </Stack>
 
@@ -147,7 +147,7 @@ function App() {
           alignItems: 'center'
         }}>
           <div> Gremlin will {output}</div>
-          <div>  {specialMessage}</div>
+          {/* <div>  {specialMessage}</div> */}
         </Stack>
         }
 
